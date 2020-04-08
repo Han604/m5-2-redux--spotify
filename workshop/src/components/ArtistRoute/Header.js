@@ -1,45 +1,61 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-import { humanizeNumber } from '../../utils';
+const Header = ({artistName, artistImage, artistFollowers}) => {
 
-import Avatar from '../Avatar';
-import Heading from '../Heading';
+    return (
+        <>
+            <ArtistImg src={artistImage} alt={artistName}/>
+            <ArtistName>{artistName}</ArtistName>
+            <ArtistFollowers>{artistFollowers}<div style={{marginLeft:'5px', color: 'white'}}> followers</div></ArtistFollowers>
+        </>
+    )
+}
 
-const Header = ({ name, photoSrc, followerCount }) => {
-  return (
-    <Wrapper>
-      <Avatar size="large" src={photoSrc} />
-      <Name size="large" forwardedAs="h2">
-        {name}
-      </Name>
-      <Followers>
-        <Count>{humanizeNumber(followerCount)}</Count> followers
-      </Followers>
-    </Wrapper>
-  );
-};
+export default Header
 
-const Wrapper = styled.header`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+const ArtistFollowers = styled.div`
+    position: absolute;
+    width: 93px;
+    height: 17px;
+    left: 141px;
+    top: 257px;
+    display: flex;
 
-const Name = styled(Heading)`
-  margin-top: -48px;
-  text-align: center;
-  line-height: 1.2;
-`;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
 
-const Followers = styled.p`
-  margin-top: -16px;
-  font-size: 14px;
-`;
+    text-transform: lowercase;
 
-const Count = styled.span`
-  font-weight: bold;
-  color: var(--color-primary);
-`;
+    color: #FF4FD8;
+`
 
-export default Header;
+const ArtistName = styled.div`
+    position: absolute;
+    width: 268px;
+    height: 59px;
+    left: 54px;
+    top: 173px;
+    text-align: center;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 59px;
+    color: white;
+    text-shadow: 4px 8px 25px #000000, 0px 4px 4px rgba(0, 0, 0, 0.5), 1px 2px 2px rgba(0, 0, 0, 0.75);
+`
+
+
+const ArtistImg = styled.img`
+    border-radius: 50%;
+    height: 175px;
+    width: 175px;
+    left: 104px;
+    top:59px;
+    position: absolute;
+`
